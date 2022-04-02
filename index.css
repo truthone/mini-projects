@@ -18,9 +18,14 @@ header {
 
 #rspImg {
   display: block;
-  width: 150px;
-  height: 150px;
+  width: 154px;
+  height: 154px;
   overflow: hidden;
+}
+
+#rspImg li{
+  width: 154px;
+  height: 154px;
 }
 
 #result {
@@ -39,4 +44,9 @@ button {
   height: 5rem;
   border-radius: 10px;
   font-weight: bold;
+}
+
+img{
+  width: 154px;
+  height: 154px;
 }
