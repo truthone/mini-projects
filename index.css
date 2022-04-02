@@ -1,0 +1,42 @@
+body {
+  background-color: cornsilk;
+}
+.container {
+  height: 80vh;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+header {
+  font-size: large;
+  font-weight: bold;
+}
+
+#rspImg {
+  display: block;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+#result {
+  display: none;
+} 
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+button {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 10px;
+  font-weight: bold;
+}
