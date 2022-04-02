@@ -11,21 +11,21 @@
 <body>
   <div class="container">
     <header>🎆가위바위보를 해봅시다🎆</header>
-    <section id="rspImg">
+    <section id="rspImg" class="visible">
       <ul style="transform:">
-        <li id="rock" ><img src="./img/✊.svg" alt="바위"></li>
-        <li id="scissors"><img src="./img/✌.svg" alt="가위"></li>
-        <li id="paper"><img src="./img/🖐.svg" alt="보"></li>
+        <li class="rock" ><img src="./img/✊.svg" alt="바위"></li>
+        <li class="scissors"><img src="./img/✌.svg" alt="가위"></li>
+        <li class="paper"><img src="./img/🖐.svg" alt="보"></li>
       </ul>
     </section>
-    <section id="result">
-      <div>다시하기?</div>
+    <section id="result" class="hide">
+      <div></div>
       <button id="retry">다시하기</button>
     </section>
     <div class="buttons">
-      <button>가위</button>
-      <button>바위</button>
-      <button>보</button>
+      <button class="scissors">가위</button>
+      <button class="rock">바위</button>
+      <button class="paper">보</button>
     </div>
   </div>
   <script src="./rsp.js"></script>
