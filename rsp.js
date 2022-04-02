@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 function startGame(){
   count = 0;
   slide();
-  timerId = setInterval(slide, 300);
+  timerId = setInterval(slide, 100);
 }
 
 function slide(){
@@ -66,7 +66,7 @@ function getGameResult(enemyState, myState){
 }
 
 function consoleResult(result){
-  document.querySelector('#result').style.display = 'block';
+  document.querySelector('#result').style.visibility = 'visible';
   const resultDiv = document.querySelector('#result > div');
 
   if(result == 0){
@@ -78,7 +78,7 @@ function consoleResult(result){
   }
 }
 document.querySelector('#retry').addEventListener('click', ()=>{
-  document.querySelector('#result').style.display = 'none';
+  document.querySelector('#result').style.visibility = 'hidden';
   startGame();
 });
 
