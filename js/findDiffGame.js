@@ -8,17 +8,26 @@ function getRandomInt(minRange,maxRange) {
 }
 
 function makeRandomRGB() {
-  const r = getRandomInt(0,255);
-  const g = getRandomInt(0,255);
-  const b = getRandomInt(0,255);
+  const range = 100; // 레벨별로 숫자가 낮아짐. 
+
+  const r = getRandomInt(0+range,255-range);
+  const g = getRandomInt(0+range,255-range);
+  const b = getRandomInt(0+range,255-range);
 
   const rgbText = `rgb(${r},${g},${b})`;
-  const diffRgbText = makeDiffRGB(r,g,b);
+  const diffRgbText = makeDiffRGB(r,g,b,range);
   const colorSet = [rgbText,diffRgbText];
 
   return colorSet;
 }
 
+function makeDiffRGB(r, g, b, range) {
+  const diffR = r + Math.abs(Math.round(range));
+  const diffG = g + Math.abs(Math.round(range));
+  const diffB = b + Math.abs(Math.round(range));
+
+  return `rgb(${diffR},${diffG},${diffB})`
+}
 
 function makeColorTable(row, col) {
   const table = document.querySelector('table');
@@ -38,13 +47,16 @@ function makeColorTable(row, col) {
   }
 
   table.appendChild(fragment);
-  changeColor();
+  changeColorChip();
 }
 
 
 function changeColorChip(){
-  color = makeRandomRGB()[0];
-  diffColor = makeRandomRGB()[1];
+  const randomColors = makeRandomRGB();
+  console.log(randomColors)
+  color = randomColors[0];
+  diffColor = randomColors[1];
+  console.log(color, diffColor)
   colorChips = document.querySelectorAll('td > div');
 
   colorChips.forEach((chip)=>{
