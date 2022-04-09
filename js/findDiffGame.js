@@ -1,5 +1,7 @@
 
-window.addEventListener('DOMContentLoaded', makeColorTable(3,3));
+window.addEventListener('DOMContentLoaded', ()=>{
+  makeColorTable(3,3);
+});
 
 function getRandomInt(minRange,maxRange) {
   min = Math.ceil(minRange);
@@ -50,7 +52,6 @@ function makeColorTable(row, col) {
   changeColorChip();
 }
 
-
 function changeColorChip(){
   const randomColors = makeRandomRGB();
   console.log(randomColors)
@@ -65,5 +66,13 @@ function changeColorChip(){
 
   const diffIndex = getRandomInt(0,colorChips.length);
   colorChips[diffIndex].style.backgroundColor = diffColor;
+  clickColorChip(colorChips[diffIndex]);
 }
 
+function clickColorChip(diff){
+  document.querySelector('table').addEventListener('click',(e)=>{
+    if(diff === e.target){
+      changeColorChip()
+    }
+  });
+}
