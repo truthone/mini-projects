@@ -76,3 +76,16 @@ function clickColorChip(diff){
     }
   });
 }
+
+let count  = 5;
+
+function timer(){
+  document.querySelector('#timer > div').textContent = `${count}초`;
+  if (count-- === 0) {
+    changeColorChip();
+    clearInterval(timeoutId);
+  }
+}
+
+timeoutId = setInterval(timer, 1000);
+
