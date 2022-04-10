@@ -1,6 +1,7 @@
 
 window.addEventListener('DOMContentLoaded', ()=>{
   makeColorTable(3,3);
+  addClickDiff();
 });
 
 function getRandomInt(minRange,maxRange) {
@@ -52,26 +53,36 @@ function makeColorTable(row, col) {
   changeColorChip();
 }
 
+
 function changeColorChip(){
   const randomColors = makeRandomRGB();
-  console.log(randomColors)
   color = randomColors[0];
   diffColor = randomColors[1];
-  console.log(color, diffColor)
+  
   colorChips = document.querySelectorAll('td > div');
 
   colorChips.forEach((chip)=>{
     chip.style.backgroundColor = color;
   })
-
-  const diffIndex = getRandomInt(0,colorChips.length);
-  colorChips[diffIndex].style.backgroundColor = diffColor;
-  clickColorChip(colorChips[diffIndex]);
+  setDiffColor(diffColor);
 }
 
-function clickColorChip(diff){
+function setDiffColor(diffColor){
+  const diffIndex = getRandomInt(0,colorChips.length);
+  const diffEle = document.querySelectorAll('td > div')[diffIndex];
+  diffEle.style.backgroundColor = diffColor;
+  addDiff(diffEle);
+}
+
+function addDiff(diffEle){
+  diffEle.className = 'diff';
+}
+
+function addClickDiff(){
   document.querySelector('table').addEventListener('click',(e)=>{
-    if(diff === e.target){
+    console.log(e.target)
+    if(e.target.className === 'diff'){
+      e.target.classList.remove('diff');
       changeColorChip()
     }
   });
